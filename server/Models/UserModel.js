@@ -26,14 +26,6 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    favoriteList: [{
-        type: mongoose.Schema.ObjectId,
-        ref: "Movie",
-    },], 
-    watchList: [{
-        type: mongoose.Schema.ObjectId,
-        ref: "Movie",
-    },],
   },
   {
     timestamps: true

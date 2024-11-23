@@ -6,6 +6,7 @@ import { connectDB } from './config/db.js';
 import userRouter from './Routes/UserRouter.js';
 import movieRouter from "./Routes/MoviesRouter.js";
 import listRouter from "./Routes/FavoriteRouter.js";
+import commentRouter from "./Routes/CommentRouter.js";
 import { errorHandler } from './middlewares/errorMiddleware.js';
 
 
@@ -23,6 +24,8 @@ app.get('/', (req, res) => {
 app.use("/api/users", userRouter);
 app.use("/api/movies", movieRouter);
 app.use("/api/lists", listRouter);
+app.use("/api/comments", commentRouter);
+
 app.use((req, res, next) => {
   console.log(`404 Error: Route ${req.originalUrl} not found`);
   res.status(404).json({ message: `Route ${req.originalUrl} not found` });
