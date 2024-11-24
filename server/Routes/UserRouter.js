@@ -3,6 +3,8 @@ import { registerUser,
          loginUser, 
          updateUserProfile, 
          deleteUserProfile, 
+         changeAvatar,
+         changeImage,
          changeUserPassword, 
          deleteUser,
          getUsers} from '../Controllers/UserController.js';
@@ -17,7 +19,8 @@ router.post("/login", loginUser);
 router.put("/", protect, updateUserProfile);
 router.delete("/", protect, deleteUserProfile);
 router.put("/password", protect, changeUserPassword);
-
+router.patch("/avatar", protect, changeAvatar);
+router.patch("/image", protect, changeImage);
 // *********** ADMIN ROUTES *********** //
 router.get("/", protect, admin, getUsers);
 router.delete("/:id", protect, admin, deleteUser);

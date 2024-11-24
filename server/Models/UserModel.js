@@ -18,14 +18,31 @@ const userSchema = new mongoose.Schema({
         required: [true, "Please add a password"],
         minlength: [6, "Password must be at least 6 characters"],
     },
-    image: {
+    avatar: {
         type: String,
         default: "https://icons.veryicon.com/png/o/miscellaneous/common-icons-31/default-avatar-2.png"
+    },
+    image: {
+        type: String,
+        default: "https://firebasestorage.googleapis.com/v0/b/movie-app-c0ec1.firebasestorage.app/o/Image.png?alt=media"
     },
     isAdmin: {
         type: Boolean,
         default: false
     },
+    googleId: {
+        type: String,
+        unique: true,
+        sparse: true
+    },
+    facebookId: {
+        type: String,
+        unique: true,
+        sparse: true
+    },
+    token: {
+        type: String
+    }
   },
   {
     timestamps: true

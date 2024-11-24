@@ -6,7 +6,7 @@ import { generateToken } from '../middlewares/Auth.js';
 // @route POST /api/users/
 //@access Public
 const registerUser = asyncHandler(async (req, res) => {
-    const {fullName, email, password, image} = req.body
+    const {fullName, email, password} = req.body
     try{
         const userExists = await User.findOne({email});
         if(userExists){
@@ -20,7 +20,6 @@ const registerUser = asyncHandler(async (req, res) => {
             fullName,
             email,
             password: hashedPassword,
-            image
         });
 
         //if user is created successfully send user data and token to client
@@ -29,7 +28,6 @@ const registerUser = asyncHandler(async (req, res) => {
                 _id: user._id,
                 fullName: user.fullName,
                 email: user.email,
-                image: user.image,
                 isAdmin: user.isAdmin,
                 token: generateToken(user._id),
             });
@@ -125,6 +123,49 @@ const deleteUserProfile = asyncHandler(async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
+//desc Change user avatar
+//@route PATCH /api/users/avatar
+//@access Private
+const changeAvatar = asyncHandler(async (req, res) => {
+    const {avatar} = req.body;
+    try {
+        const user = await User.findById(req.user._id);
+        if (user){
+            user.avatar = avatar || user.avatar;
+            const updateUser = await user.save();
+            res.json({
+                _id: updateUser._id,
+                fullName: updateUser.fullName,
+                email: updateUser.email,
+                avatar: updateUser.avatar,
+                isAdmin: updateUser.isAdmin,
+                token: generateToken(updateUser._id),
+            })
+        }}
+    catch (error){
+        res.status(400).json({message: error.message});
+    }
+});
+const changeImage = asyncHandler(async (req, res) => {
+    const {image} = req.body;
+    try {
+        const user = await User.findById(req.user._id);
+        if (user){
+            user.image = image || user.image;
+            const updateUser = await user.save();
+            res.json({
+                _id: updateUser._id,
+                fullName: updateUser.fullName,
+                email: updateUser.email,
+                image: updateUser.image,
+                isAdmin: updateUser.isAdmin,
+                token: generateToken(updateUser._id),
+            })
+        }}
+    catch (error){
+        res.status(400).json({message: error.message});
+    }
+}); 
 
 //@desc Change user password
 //@route PUT /api/users/password
@@ -188,7 +229,9 @@ const deleteUser = asyncHandler(async (req, res) => {
 export {registerUser, 
         loginUser, 
         updateUserProfile, 
-        deleteUserProfile, 
+        deleteUserProfile,
+        changeAvatar, 
+        changeImage,
         changeUserPassword, 
         deleteUser, 
         getUsers};
