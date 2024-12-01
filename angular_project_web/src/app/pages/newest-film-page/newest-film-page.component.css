@@ -1,0 +1,240 @@
+.container-fluid {
+  background-image: url("/assets/images/loki-bg.jpg");
+  height: 1000px;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Lato', sans-serif;
+}
+.poster .upper-part {
+  padding-top: 5%;
+  margin: 0 0 0 10%;
+}
+.upper-part .title {
+  font-size: 100px !important;
+  font-weight: 800;
+  /* line-height: 96px; */
+  color: white;
+  margin-bottom: 2%;
+}
+.upper-part .description {
+  display: block;
+  max-width: 500px;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  /* line-height: 20px; */
+}
+.upper-part .buttons {
+  margin-top: 2%;
+}
+
+.buttons .btn {
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  min-width: 100px;
+  padding: 10px 20px;
+}
+
+.buttons .btn-watch {
+  background-color: var(--blue-highlight);
+
+}
+.buttons .btn-detail{
+  color: #fff;
+  background-color: rgba(255, 245, 245, 0.2);
+
+}
+
+
+
+/*----------------- BELOW PART ---------------*/
+
+.container-row {
+  height: 500px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
+  gap: 80px;
+  margin-top: 5%;
+  scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+  -ms-overflow-style: none; /* Ẩn thanh cuộn trên Internet Explorer và Edge */
+}
+.container-row::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn trên Chrome, Safari và Opera */
+}
+.thumbnail {
+  position: relative;
+  text-align: center;
+  color: white;
+  min-width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px;
+}
+.thumbnail:hover {
+  transform: scale(1.1);
+
+}
+.thumbnail img:hover{
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+
+}
+.thumbnail .rating {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white-color);
+  line-height: 17px;
+}
+.thumbnail img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.thumbnail .details {
+  margin-top: 10px;
+}
+
+.details-top  
+.details-top p {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white-color)b2;
+  line-height: 17px;
+}
+
+/* .details-bottom p {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white-color)b2;
+  line-height: 17px;
+} */
+/*-----------------------------------LEFT MENU ------------------------------------------------------ */
+.left-menu{
+  background-color: rgba(22, 24, 30, 0.7);
+}
+.arrow-down {
+  width: 12%;
+  aspect-ratio: 1/1;
+}
+
+.left-menu {
+  width: 14.5%;
+  font-family: "Lato", sans-serif;
+  transition: width 0.3s ease;
+}
+.left-menu.collapsed {
+  width: 0; /* Thu nhỏ menu */
+  overflow: hidden; /* Ẩn nội dung */
+}
+
+.full-width {
+  width: 80%; /* Mở rộng nội dung chính khi menu bị ẩn */
+}
+
+.left-menu.collapsed .section-title,
+.left-menu.collapsed .nav-link span {
+  display: none; /* Ẩn text khi menu bị thu nhỏ */
+}
+
+.left-menu.collapsed .nav-link img {
+  margin: 0 auto;
+}
+/* SHOW ICON Styling */
+.left-menu .icon {
+  margin: 5% 0 0 6%;
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.toggle-icon .icon-out {
+  position: absolute;
+  top: 12%;
+  left: 1%;
+  cursor: pointer;
+  width: 30px;
+  z-index: 10;
+}
+
+.menu-section {
+  padding: 10px 0px;
+}
+.section-title {
+  padding: 10px 20px;
+  font-size: 17.33px;
+  text-transform: capitalize;
+  color: #aeafb2;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-link {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 17.33px;
+  transition: background-color 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-link img {
+  max-width: 1em;
+  height: auto;
+  padding: 0;
+  margin: 0 10px 0 0;
+}
+
+.nav-link:hover {
+  background-color: #343a40;
+  border-radius: 5px;
+}
+
+.nav-link.active {
+  color: #00cccc;
+}
+
+/*---------------EFFECTS LEFT MENU--------------*/
+.nav-link {
+  color: white; /* Màu mặc định */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--dark-background); /* Màu chữ khi hover */
+  background-color: var(--blue-highlight); /* Màu nền khi hover */
+  border-radius: 5px; /* Thêm góc bo nếu cần */
+}
+
+.nav-link.active {
+  color: var(--dark-background); /* Màu chữ khi active */
+  background-color: var(--blue-highlight); /* Màu nền khi active */
+  border-radius: 5px;
+}

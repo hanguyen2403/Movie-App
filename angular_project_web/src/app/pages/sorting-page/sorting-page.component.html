@@ -1,0 +1,342 @@
+<div class="row w-100">
+  <!--Left menu--> 
+  <aside
+    class="col-2 left-menu text-light"
+    [class.collapsed]="isCollapsed" 
+  >
+    <div *ngIf="!isCollapsed" class="d-flex flex-column h-100">
+      <img
+        [src]="sideBarPath"
+        alt="Collapse Menu"
+        class="icon"
+        (click)="toggleMenu()"
+      />
+      <!-- Menu Items -->
+      <nav class="flex-grow-1">
+        <div class="menu-section">
+          <p class="section-title">Menu</p>
+          <ul class="nav flex-column">
+            <li class="nav-item"> 
+              <a [routerLink]="'/home'" class="nav-link active text-light" routerLinkActive="active">
+                <img [src]="home" alt="home-icon" /> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="'/sorting'" class="nav-link text-light" routerLinkActive="active">
+                <img [src]="sort" alt="home-icon" /> Sorting
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-section">
+          <p class="section-title">Library</p>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a [routerLink]="'/newest'" class="nav-link text-light" routerLinkActive="active">
+                <img [src]="recent" alt="home-icon" /> Recent
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="'/settings'" class="nav-link text-light" routerLinkActive="active">
+                <img [src]="playlists" alt="home-icon" /> Playlists
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="'/settings'" class="nav-link text-light" routerLinkActive="active">
+                <img [src]="watchlist" alt="home-icon" /> Watchlist
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="'/settings'" class="nav-link text-light" routerLinkActive="active">
+                <img [src]="continue" alt="home-icon" /> Continue
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-section">
+          <p class="section-title">General</p>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a [routerLink]="'/settings'" class="nav-link text-light" routerLinkActive="active">
+                <img [src]="settings" alt="home-icon" /> Settings
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link text-light" routerLinkActive="active">
+                <img [src]="logout" alt="home-icon" /> Log Out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </aside>
+  <!-- Icon hiển thị khi menu thu nhỏ -->
+  <div *ngIf="isCollapsed" class="toggle-icon" (click)="toggleMenu()">
+    <img [src]="sideBarPath" alt="Collapse Menu" class="icon-out" />
+  </div>
+  <div class="col-10" [class.full-width]="isCollapsed">
+    <div
+      class="d-flex align-items-center mt-4 mb-3 pt-4 select-container"
+      [ngClass]="{ 'with-menu': !isCollapsed, 'without-menu': isCollapsed }"
+    >
+      <select class="form-select genres-select" aria-label="Genres">
+        <option selected>Genres</option>
+        <!-- Add more options here -->
+      </select>
+      <select class="form-select year-select" aria-label="Year">
+        <option selected>Year</option>
+        <!-- Add more options here -->
+      </select>
+      <select class="form-select country-select" aria-label="Country">
+        <option selected>Country</option>
+        <!-- Add more options here -->
+      </select>
+      <button class="btn sorting-btn">Sorting</button>
+    </div>
+    <div class="container-fluid mt-5 ">
+      <div class="title-bar">
+        <div
+          class="my-auto me-2"
+          style="background-color: #00b9ae; width: 4px; height: 2em"
+        ></div>
+        <div
+          class="container-fluid d-flex justify-content-between label p-0 m-0 text-light"
+        >
+          <h4>SORTING</h4>
+          <!-- <p>See more >></p> -->
+        </div>
+      </div>
+     
+      <hr />
+      <div class="row my-5">
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div [routerLink]="'/description'"  class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <!-- <div class="rating">⭐ 7.8</div> -->
+            <div class="rating">HD Vietsub</div>
+            <img [src]="lokiPath" alt="Loki" />
+            <div class="details d-block">
+              <div class="details-top col-12 text-start">
+                <h5>Loki</h5>
+              </div>
+              <div class="details-bottom d-flex justify-content-between">
+                <p>2023</p>
+                <p>Complete</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex col-12 justify-content-center align-items-center my-0 mb-5 ">
+
+        <ul class="pagination pagination-dark d-flex gap-2 py-0 mt-2 mb-0 ">
+            <li class="page-item disabled ">
+                <a class="page-link " href="#" aria-label="Previous">
+                    <span aria-hidden="true">
+                        <i class="fa-solid fa-arrow-left me-2"></i>
+                        Previous</span>
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="#">67</a></li>
+            <li class="page-item"><a class="page-link" href="#">68</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">Next
+                        <i class="fa-solid fa-arrow-right ms-2"></i>
+
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+  <div class="container-fluid">
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
