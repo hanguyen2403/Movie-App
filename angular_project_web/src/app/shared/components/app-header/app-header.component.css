@@ -1,4 +1,3 @@
-/* Nav */
 
 .navbar .logo {
   width: 10%;
@@ -22,7 +21,7 @@
 }
 
 .nav-link{ 
-  color: #fff;
+  color: var(--white-color);
 }
 
 /* Căn đều các mục bên trong ul */
@@ -39,19 +38,14 @@
 }
 
 .search-bar {
-  /* background-color: #AEAFB2; */
-  border: 1px solid #aeafb2;
+  border: 1px solid var(--search-bar);
   border-radius: 10px;
   overflow: hidden;
 }
 
-/* .search-bar .input-group-text {
-        background-color: #AEAFB2;
-      } */
 
-/* Thay đổi màu cho placeholder */
 .search-bar input::placeholder {
-  color: #aeafb2;
+  color: var(--search-bar);
   opacity: 1; /* Bỏ mờ mặc định của placeholder */
 }
 /* Loại bỏ viền outline mặc định khi focus */
