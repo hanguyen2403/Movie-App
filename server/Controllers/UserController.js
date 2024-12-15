@@ -57,6 +57,7 @@ const loginUser = asyncHandler(async (req, res) => {
                 _id: user._id,
                 fullName: user.fullName,
                 email: user.email,
+                avatar: user.avatar,
                 image: user.image,
                 isAdmin: user.isAdmin,
                 token: generateToken(user._id),
@@ -70,6 +71,22 @@ const loginUser = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc Get user by id
+// @route GET /api/users/id
+//@access Public
+const getUserById = asyncHandler(async (req, res) => {
+    try{
+        const user = await User.findById(req.params.id);
+        if (user){
+            res.json(user);
+        } else {
+            res.status(404);
+            throw new Error("User not found");
+        }
+    } catch (error){
+        res.status(400).json({message: error.message});
+    }
+});
 // ********* PRIVATE CONTROLLERS *********
 
 // @desc    Update user profile
@@ -338,6 +355,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 });
 export {registerUser, 
         loginUser, 
+        getUserById,
         updateUserProfile, 
         deleteUserProfile,
         changeAvatar, 

@@ -6,7 +6,7 @@ const router = express.Router();
 
 // *********** FAVORITES ROUTES *********** //
 
-// Add movie to favorite list
+// Add movie to list
 router.post("/", protect, addToList);
 
 // Get all favorite movies for a user

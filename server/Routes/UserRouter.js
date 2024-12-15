@@ -1,6 +1,7 @@
 import express from 'express';
 import { registerUser, 
          loginUser, 
+         getUserById,
          updateUserProfile, 
          deleteUserProfile, 
          changeAvatar,
@@ -19,7 +20,7 @@ const upload = multer({
 
 router.post("/", registerUser);
 router.post("/login", loginUser);
-
+router.get("/:id", getUserById);
 // *********** PRIVATE ROUTES *********** //
 router.put("/", protect, updateUserProfile);
 router.delete("/", protect, deleteUserProfile);
