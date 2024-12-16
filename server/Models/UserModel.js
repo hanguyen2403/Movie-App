@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: "https://icons.veryicon.com/png/o/miscellaneous/common-icons-31/default-avatar-2.png"
+        default: "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3467.jpg"
     },
     image: {
         type: String,
